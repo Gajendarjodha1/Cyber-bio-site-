@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gun Fire Animation</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .gun-container {
+            position: relative;
+            display: inline-block;
+            margin-top: 100px;
+            cursor: pointer;
+        }
+        .gun {
+            width: 200px;
+        }
+        .bullet {
+            position: absolute;
+            width: 20px;
+            height: 5px;
+            background-color: red;
+            top: 50%;
+            left: 100%;
+            display: none;
+        }
+        @keyframes fire {
+            0% { left: 100%; opacity: 1; }
+            100% { left: 300px; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔫 Click on the Gun to Fire!</h1>
+    
+    <div class="gun-container" onclick="shoot()">
+        <img src="https://i.imgur.com/Q6n4WeE.png" class="gun">
+        <div class="bullet"></div>
+    </div>
+
+    <script>
+        function shoot() {
+            let bullet = document.querySelector(".bullet");
+            bullet.style.display = "block";
+            bullet.style.animation = "fire 0.5s linear";
+            
+            setTimeout(() => {
+                bullet.style.display = "none";
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
